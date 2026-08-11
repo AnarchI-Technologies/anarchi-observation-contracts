@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AnarchI-Technologies/anarchi-observation-contracts/schemas/evidence-envelope-v1.json",
+  "title": "AnarchI Evidence Envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "observation_id", "source", "source_instance", "cycle_id", "window_started_at", "window_ended_at", "observed_at", "severity", "state", "domain", "condition", "condition_family", "subject", "measured_evidence", "confidence", "incident_code", "evidence_hash", "expires_at", "provenance"],
+  "properties": {
+    "schema_version": {"const": "anarchi.evidence.v1"},
+    "observation_id": {"type": "string", "pattern": "^obs_[0-9a-f]{32}$"},
+    "source": {"enum": ["watchtower", "spine-spire", "therma-stats"]},
+    "source_instance": {"type": "string", "minLength": 1, "maxLength": 160},
+    "cycle_id": {"type": "string", "pattern": "^obs:v1:"},
+    "window_started_at": {"type": "string", "format": "date-time"},
+    "window_ended_at": {"type": "string", "format": "date-time"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "severity": {"enum": ["info", "warning", "critical"]},
+    "state": {"enum": ["healthy", "degraded", "unhealthy", "unknown"]},
+    "domain": {"type": "string", "minLength": 1, "maxLength": 128},
+    "condition": {"type": "string", "minLength": 1, "maxLength": 160},
+    "condition_family": {"type": "string", "minLength": 1, "maxLength": 160},
+    "subject": {"type": "string", "minLength": 1, "maxLength": 512},
+    "measured_evidence": {"type": "object"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "incident_code": {"type": "string", "pattern": "^inc_[0-9a-f]{32}$"},
+    "evidence_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "producer_version", "host", "transport"],
+      "properties": {
+        "producer": {"type": "string"},
+        "producer_version": {"type": "string"},
+        "host": {"type": "string"},
+        "transport": {"const": "pulse-local-ingress/switch-board"}
+      }
+    }
+  }
+}

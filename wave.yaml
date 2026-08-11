@@ -1,0 +1,7 @@
+schema_version: 1
+wave: canonical-observer-plane-v1
+artifact: anarchi-observation-contracts
+inputs: []
+outputs: [schemas/evidence-envelope-v1.json]
+verification: python -m json.tool schemas/evidence-envelope-v1.json
+

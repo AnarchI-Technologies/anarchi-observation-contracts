@@ -1,0 +1,19 @@
+schema_version: 1
+identity:
+  organization: AnarchI
+  component: Observation Contracts
+  canonical_name: anarchi-observation-contracts
+  responsibility: public evidence and cadence wire schemas
+  authority: schema-only
+repository:
+  owner: AnarchI-Technologies
+  name: anarchi-observation-contracts
+  visibility: public
+  status: canonical
+boundaries:
+  owns: [evidence envelope schema, cadence identity rules, correlation derivation rules]
+  forbids: [runtime code, observation, routing, persistence, decisions, actions]
+validation:
+  test_command: python -m json.tool schemas/evidence-envelope-v1.json
+lineage:
+  source: canonical-reconciliation-2026-08-11
