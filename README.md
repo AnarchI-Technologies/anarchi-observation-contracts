@@ -1,6 +1,6 @@
 # AnarchI Observation Contracts
 
-Public, implementation-free contracts for evidence emitted by Watchtower, Spine Spire, and Therma-Stats and retained by Retention Retainers.
+Public, implementation-free contracts for evidence emitted by Watchtower, Spine Spire, and Therma-Stats and retained by Chronicle.
 
 The canonical envelope is `schemas/evidence-envelope-v1.json`. Raw evidence is immutable. Correlation adds stable linkage through `incident_code`; it never rewrites an observation. Producers join a shared cadence by using the same UTC window and deriving `cycle_id` as `obs:v1:<window-start>:<window-seconds>`.
 
