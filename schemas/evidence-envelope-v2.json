@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/AnarchI-Technologies/anarchi-observation-contracts/schemas/evidence-envelope-v2.json",
+  "$id": "https://github.com/AnarchI-Technologies-MAIN/anarchi-observation-contracts/schemas/evidence-envelope-v2.json",
   "title": "AnarchI Evidence Envelope v2",
   "type": "object",
   "additionalProperties": false,
